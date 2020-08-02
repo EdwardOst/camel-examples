@@ -3,10 +3,10 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.talend.se.platform</groupId>
-  <artifactId>camel-example-json</artifactId>
+  <artifactId>camel-example-component-configuration</artifactId>
   <version>7.3.1</version>
-  <name>platform :: apache :: camel :: example :: json</name>
-  <description>json data format and schema validation example</description>
+  <name>platform :: apache :: camel :: example :: component-configuration</name>
+  <description>explore camel component configuration</description>
   <properties>
     <karaf.version>4.2.7</karaf.version>
     <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
