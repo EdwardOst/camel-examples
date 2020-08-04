@@ -7,6 +7,12 @@
 	<artifactId>camel-examples</artifactId>
 	<version>7.3.1</version>  <!-- should match the tesb-parent version and the revision property in the camel-example-parent pom -->
 	<packaging>pom</packaging>
+	<parent>
+		<groupId>com.talend.se</groupId>
+		<artifactId>eost-parent</artifactId>
+		<version>1.0.0</version>
+		<relativePath/>  <!-- use repository -->
+	</parent>
 
 	<name>talend :: camel :: examples</name>
 	<description>Basic Camel exploratory examples</description>
