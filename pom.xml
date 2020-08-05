@@ -3,14 +3,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.talend.se</groupId>
 	<artifactId>camel-examples</artifactId>
-	<version>7.3.1</version>  <!-- should match the tesb-parent version and the revision property in the camel-example-parent pom -->
+	<version>${revision}</version>
 	<packaging>pom</packaging>
 	<parent>
-		<groupId>com.talend.se</groupId>
-		<artifactId>eost-parent</artifactId>
-		<version>1.0.0</version>
+		<groupId>com.talend.se.platform</groupId>
+		<artifactId>tesb-parent</artifactId>
+		<version>7.3.1</version>  <!-- must match revision property below -->
 		<relativePath/>  <!-- use repository -->
 	</parent>
 
@@ -18,7 +17,7 @@
 	<description>Basic Camel exploratory examples</description>
 
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<revision>7.3.1</revision>  <!-- must match parent version above -->
 	</properties>
 
 	<modules>
@@ -36,4 +35,19 @@
 		<module>camel-example-avro-dataformat</module>
 		<module>camel-example-component-configuration</module>
 	</modules>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>flatten-maven-plugin</artifactId>
+				<version>${flatten-maven-plugin.version}</version>
+				<configuration>
+					<flattenMode>resolveCiFriendliesOnly</flattenMode>
+					<updatePomFile>true</updatePomFile>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
 </project>

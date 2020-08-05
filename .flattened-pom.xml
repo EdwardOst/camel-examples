@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.talend.se.platform</groupId>
+    <artifactId>tesb-parent</artifactId>
+    <version>7.3.1</version>
+    <relativePath></relativePath>
+  </parent>
+  <groupId>com.talend.se.platform</groupId>
+  <artifactId>camel-examples</artifactId>
+  <version>7.3.1</version>
+  <packaging>pom</packaging>
+  <name>talend :: camel :: examples</name>
+  <description>Basic Camel exploratory examples</description>
+  <modules>
+    <module>camel-example-parent</module>
+    <module>camel-example-avro</module>
+    <module>camel-example-json</module>
+    <module>camel-example-spring-boot</module>
+    <module>camel-spring-boot-bom</module>
+    <module>camel-dynamic-endpoint</module>
+    <module>camel-example-xml</module>
+    <module>camel-example-xml-dataformat</module>
+    <module>camel-example-json-dataformat</module>
+    <module>talend-dynamic-endpoint</module>
+    <module>camel-example-xslt</module>
+    <module>camel-example-avro-dataformat</module>
+    <module>camel-example-component-configuration</module>
+  </modules>
+  <properties>
+    <revision>7.3.1</revision>
+  </properties>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>flatten-maven-plugin</artifactId>
+        <version>${flatten-maven-plugin.version}</version>
+        <configuration>
+          <flattenMode>resolveCiFriendliesOnly</flattenMode>
+          <updatePomFile>true</updatePomFile>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
