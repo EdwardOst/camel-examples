@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+
+  <!-- servers
+   | This is a list of authentication profiles, keyed by the server-id used within the system.
+   | Authentication profiles can be used whenever maven must make a connection to a remote server.
+   |-->
+  <servers>
+    <server>
+      <id>packagecloud-eost</id>
+      <password>${env.PACKAGECLOUD_TOKEN}</password>
+    </server>
+  </servers>
+
+
+  <!-- profiles
+   | NOTE: For profiles defined in the settings.xml, you are restricted to specifying only artifact
+   |       repositories, plugin repositories, and free-form properties to be used as configuration
+   |       variables for plugins in the POM.
+   |
+   |-->
+  <profiles>
+  
+    <profile>
+		<id>packagecloud</id>
+		<properties>
+			<release.repo.id>packagecloud-eost</release.repo.id>
+			<release.repo.name>Package Cloud Release Repository</release.repo.name>
+			<release.repo.url>packagecloud+https://packagecloud.io/eost/talend</release.repo.url>
+			<snapshot.repo.id>packagecloud-eost</snapshot.repo.id>
+			<snapshot.repo.name>Package Cloud Snapshot Repository</snapshot.repo.name>
+			<snapshot.repo.url>packagecloud+https://packagecloud.io/eost/talend</snapshot.repo.url>
+		</properties>
+		<repositories>
+		  <repository>
+			<id>eost-talend</id>
+			<url>https://packagecloud.io/eost/talend/maven2</url>
+			<releases>
+			  <enabled>true</enabled>
+			</releases>
+			<snapshots>
+			  <enabled>true</enabled>
+			</snapshots>
+		  </repository>
+		</repositories>
+	</profile>
+  
+  </profiles>
+
+  <!-- activeProfiles
+   | List of profiles that are active for all builds.
+   |
+  -->
+  <activeProfiles>
+    <activeProfile>default</activeProfile>
+    <activeProfile>packagecloud</activeProfile>
+  </activeProfiles>
+</settings>
