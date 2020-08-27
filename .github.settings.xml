@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+
+	<servers>
+		<!-- preserve conventions from github actions -->
+		<server>
+			<id>github</id>
+			<username>${env.GITHUB_ACTOR}</username>
+			<password>${env.GITHUB_TOKEN}</password>
+		</server>
+	</servers>
+
+
+	<profiles>
+
+		<profile>
+			<id>default</id>
+			<properties>
+				<!-- default extension wagon properties are safe and do not actually do anything -->
+	            <wagon.extension.groupId>org.apache.maven.wagon</wagon.extension.groupId>
+	            <wagon.extension.artifactId>wagon-file</wagon.extension.artifactId>
+	            <wagon.extension.version>3.4.1</wagon.extension.version>
+			</properties>
+		</profile>
+  
+		<profile>
+			<id>github</id>
+			<properties>
+				<release.repo.id>github</release.repo.id>
+				<release.repo.name>Github Packages Repository</release.repo.name>
+				<release.repo.url>https://maven.pkg.github.com/edwardost/maven2</release.repo.url>
+
+				<snapshot.repo.id>github</snapshot.repo.id>
+				<snapshot.repo.name>Github Packages Repository</snapshot.repo.name>
+				<snapshot.repo.url>https://maven.pkg.github.com/edwardost/maven2</snapshot.repo.url>
+			</properties>
+			<repositories>
+				<repository>
+					<id>github</id>
+					<url>https://maven.pkg.github.com/edwardost/maven2</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+				</repository>
+			</repositories>
+		</profile>
+
+	</profiles>
+
+	<activeProfiles>
+		<activeProfile>default</activeProfile>
+		<activeProfile>github</activeProfile>
+	</activeProfiles>
+</settings>
